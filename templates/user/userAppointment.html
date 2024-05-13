@@ -1,0 +1,93 @@
+
+{% extends 'user/userhead.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            
+        
+            <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                <div class="bg-light rounded p-5">
+                    <!-- <a href="{% url 'login' %}">Login</a> -->
+                    {% for msg in messages %}
+                    {{msg}}
+                    {% endfor %}
+                
+                    <form action="" method="post">
+                        {% csrf_token %}
+                
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="card_id" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your card Number</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            
+                                <div class="form-floating">
+                                    <select name="doctor" class="form-control" style="background-color: white;">
+                                    {% for doctor in doctors %}
+                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                    {% endfor %}
+                                  </select>
+                                  <label for="name">select Doctor Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                               
+                                <div class="form-floating">
+                                  <select name="department" class="form-control"  style="background-color: white;">
+                                    {% for department in departments %}
+                    <option value="{{ department.id }}">{{ department.name }}</option>
+                                     {% endfor %}
+                                  </select>
+                                  <label for="name">select Department Name</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" name="appointment_date" class="form-control" id="name">
+                                    <label for="name">Date</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                              
+                                <div class="form-floating">
+                                   <select name="appointment_time" class="form-control" style="background-color: white;">
+                                    <option value="10-1 PM">10-1 PM</option>
+                                    <option value="3-5 PM">3-5 PM</option>
+                                   </select>
+                                   <label for="name">Time</label>
+                                </div>
+                            </div>
+                           
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea name="problem" class="form-control" placeholder="Your health problems" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Problem</label>
+                                </div>
+                            </div>
+                            
+                          
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">SEND</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</div>
+{% endblock %}

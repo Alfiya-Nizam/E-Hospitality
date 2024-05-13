@@ -1,0 +1,14 @@
+{% extends 'user/userhead.html' %}
+{% load static %}
+{% block content %}
+<table align="center">
+<h1 style="text-align: center;color: rgb(255, 162, 0)">Delete Appointment{{appointment.name}}</h1>
+<form action method="post" >
+    {% csrf_token %}
+    <h2 style="text-align: center;color: red">Are u sure??</h2>
+    <tr>
+   <td align="center" colspan="2" style="background-color: blue;"><input type="submit" value="confirm delete" style="background-color: rgb(0, 106, 255);"></td> 
+</tr></form>
+</table>
+
+{% endblock %}

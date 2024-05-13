@@ -1,0 +1,60 @@
+
+{% extends 'user/userhead.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Details</title>
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even){background-color: #f2f2f2}
+      
+      th {
+        background-color: #0462aa;
+        color: white;
+      }
+      h1 {
+        color: #0462aa;
+        text-align: center;
+      }
+      </style>
+</head>
+<body>
+    <h1 >Appointment Treatment Plan</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Plan</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in treatmentPlan %}
+           
+            <tr>
+                <td>{{ i.plan }}</td>
+               
+                
+                
+            </tr>
+           
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

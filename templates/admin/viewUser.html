@@ -1,0 +1,66 @@
+
+{% extends 'admin/ahead.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Details</title>
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even){background-color: #f2f2f2}
+      
+      th {
+        background-color: #0462aa;
+        color: white;
+      }
+      h1 {
+        color: #0462aa;
+        text-align: center;
+      }
+      </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Registered User Details</h1>
+    <table border="1" align="center">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>place</th>
+            <th>district</th>
+            <th>state</th>
+            <th>pincode</th>
+            <th>phone</th>
+            <th>email</th>
+        </tr>
+        {% for i in profiles %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.place}}</td>
+            <td>{{i.district}}</td>
+            <td>{{i.state}}</td>
+            <td>{{i.pincode}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.email}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+  
+</body>
+</html>
+{% endblock %}

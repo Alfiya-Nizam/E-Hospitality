@@ -1,0 +1,128 @@
+
+{% extends 'admin/ahead.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            
+        
+            <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                <div class="bg-light rounded p-5">
+                    <!-- <a href="{% url 'login' %}">Login</a> -->
+                    {% for msg in messages %}
+                    {{msg}}
+                    {% endfor %}
+                
+                    <form action="" method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <textarea name="address" class="form-control" placeholder="Address" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Address</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="place"class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Place</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="state" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">State</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="country" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Country</label>
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="phone" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="qualification" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Qualification</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="experience" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Experience</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            
+                                <div class="form-floating">
+                                    <select name="department" class="form-control" style="background-color: white;">
+                                        {% for department in departments %}
+
+                                        <option value="{{ department.id }}">{{ department.name }}</option>
+
+                                        {% endfor %}
+                                  </select>
+                                  <label for="name">Department</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="email" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="file" name="image" class="form-control" id="name" placeholder="Your Name" style="background-color: white;">
+                                    <label for="name">Image</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="username" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Username</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="password" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Password</label>
+                                </div>
+                            </div>
+                           
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" name="password1" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Confirm Password</label>
+                                </div>
+                            </div>
+                          
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+
+{% extends 'user/userhead.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Details</title>
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even){background-color: #f2f2f2}
+      
+      th {
+        background-color: #0462aa;
+        color: white;
+      }
+      h1 {
+        color: #0462aa;
+        text-align: center;
+      }
+      </style>
+</head>
+<body>
+    <h1 >Appointment Booking Details</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Card ID</th>
+                <th>Name</th>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
+                <th>Problem</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+           
+            <tr>
+                <td>{{ appointment.card_id }}</td>
+                <td>{{ appointment.name }}</td>
+                <td>{{ appointment.appointment_date }}</td>
+                <td>{{ appointment.appointment_time }}</td>
+                <td>{{ appointment.problem }}</td>
+                <td>{{ appointment.status }}</td>
+                <td><a href="{% url 'delete' appointment.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'update' appointment.id %}"  class="btn btn-success">Reschedule</a> 
+                
+
+                <form action="{% url 'create_checkout_session' %}" method="POST" >
+                  {% csrf_token %}
+              
+                          <button id="checkout-button" type="submit" class="btn btn-primary mt-3">Checkout</button>
+                      
+              </form>
+         
+         
+                        </td>
+                
+            </tr>
+           
+            {% endfor %}
+        
+    <br/>
+    <br/><br/><br/>
+ 
+    
+</body>
+</html>
+{% endblock %}

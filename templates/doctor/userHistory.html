@@ -1,0 +1,70 @@
+
+{% extends 'doctor/dhead.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Details</title>
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even){background-color: #f2f2f2}
+      
+      th {
+        background-color: #0462aa;
+        color: white;
+      }
+      h1 {
+        color: #0462aa;
+        text-align: center;
+      }
+      </style>
+</head>
+<body>
+    <h1>Patient History</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Place</th>
+                <th>District</th>
+                <th>State</th>
+                <th>Pincode</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in udetails %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.place }}</td>
+                <td>{{ user.district }}</td>
+                <td>{{ user.state }}</td>
+                <td>{{ user.pincode }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.email }}</td>
+                <td><a href="{% url 'medical' user.id %}" class="btn btn-danger">Midical History</a>
+                  <a href="{% url 'treatmentPlan' %}" class="btn btn-primary">Treatement Plan</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

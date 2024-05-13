@@ -1,0 +1,50 @@
+
+
+
+
+{% extends 'admin/ahead.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            
+        
+            <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                <div class="bg-light rounded p-5">
+                    <!-- <a href="{% url 'login' %}">Login</a> -->
+                    {% for msg in messages %}
+                    {{msg}}
+                    {% endfor %}
+                
+                    <form action="" method="post">
+
+                        {% csrf_token %}
+                
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Resource : </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea name="description" class="form-control" placeholder="Address" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Remedy/Tips</label>
+                                </div>
+                            </div>
+                        
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</div>
+{% endblock %}
